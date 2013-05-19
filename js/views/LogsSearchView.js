@@ -17,7 +17,9 @@ define(['text!../templates/search.tmpl'], function(template) {
 		search: function(event) {
 			this._searchByValue($(event.target).val());
 		},
-		reset: function() {
+		reset: function(event) {
+			event.preventDefault();
+  			
 			this.$('input').val('');
 			this._searchByValue('');
 		},
