@@ -1,7 +1,8 @@
 workshop-backbone
 =================
 
-1. Bootstrap and log table
+Bootstrap and log table
+-----------------------
 - open index.html, its fills with static content
 - open http://-ourserver-:3000/logs, here are the true datas
 - add app.js and require.js to index.html as script
@@ -16,7 +17,8 @@ workshop-backbone
 - add <%= mustash %> to the template markup and inject collection.toJSON into it
 - format every data in the template file with <% any js code you need %>
 
-2. Filter by status and method
+Filter by status and method
+---------------------------
 - create a LogsFilterView and extract the filter.tmpl from index.html
 - listen to click events on statuses & methods ul
 - create a LogsAppModel with two collections, statuses and methods, to store the filters states
@@ -25,5 +27,6 @@ workshop-backbone
 - listenTo this model in LogsFilterView and <%= mustash %> the template with the unique values
 - listenTo this model collections in LogsView and filter the LogCollection following the selected filters
 
-3. Search
+Search
+------
 - to be done
