@@ -4,13 +4,21 @@ define(['text!../templates/search.tmpl'], function(template) {
 			this.listenToOnce(this.model, 'change', this.render);
 		},
 		events: {
-			'keyup input': 'search'
+			'keyup input': 'search',
+			'click a': 'reset'
 		},
 		render: function() {
 			this.$el.html(template);
 		},
+		searchByValue: function(value) {
+			this.model.set('search', value);
+		},
 		search: function(event) {
-			this.model.set('search', $(event.target).val());
+			this.searchByValue($(event.target).val());
+		},
+		reset: function() {
+			this.$('input').val('');
+			this.searchByValue('');
 		}
 	});
 });
