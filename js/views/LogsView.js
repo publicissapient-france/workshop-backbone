@@ -14,7 +14,7 @@ define(['collections/LogCollection', 'text!../templates/table.tmpl'], function(L
 			var methods = _.pluck(this.model.methods.where({'checked': true}), 'id');
 			var search = this.model.get('search');
 
-			this.$el.html(this.template(this.collection.filterBy(statuses, methods, search).toJSON()));
+			this.$el.html(this.template(this.collection.byStatus(statuses).byMethod(methods).bySearch(search).toJSON()));
 		},
 		_hydrateModel: function() {
 			this.model.clear();

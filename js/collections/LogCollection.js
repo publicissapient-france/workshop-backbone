@@ -1,5 +1,5 @@
 define(function(){
-	return Backbone.Collection.extend({
+	var LogCollection = Backbone.Collection.extend({
 		url: 'http://localhost:3000/logs',
 		parse: function(response) {
 			return _.map(response.logs, function(item) { 
@@ -9,13 +9,22 @@ define(function(){
 				return item;
 			});
 		},
-		filterBy: function(statuses, methods, search) {
+		byStatus: function(statuses) {
+			return this.filterBy(function(model) { return _.contains(statuses, model.get('status')); });
+		},
+		byMethod: function(methods) {
+			return this.filterBy(function(model) { return _.contains(methods, model.get('method')); });
+		},
+		bySearch: function(search) {
+			return this.filterBy(function(model) { return _.isEmpty(search) || model.get('path').indexOf(search) !== -1; });
+		},
+		filterBy: function(callback) {
 			filtered = this.filter(function(model) {
-				return _.contains(statuses, model.get('status')) 
-					&& _.contains(methods, model.get('method'))
-					&& (_.isEmpty(search) || model.get('path').indexOf(search) !== -1);
+				return callback(model);
 			});
-			return new Backbone.Collection(filtered);
+			return new LogCollection(filtered);	
 		}
 	});
+
+	return LogCollection;
 });
