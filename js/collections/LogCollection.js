@@ -11,12 +11,9 @@ define(function(){
 		},
 		filterBy: function(statuses, methods, search) {
 			filtered = this.filter(function(model) {
-				var method = model.get('method'),
-					path = model.get('path');
-
 				return _.contains(statuses, model.get('status')) 
-					&& _.contains(methods, method)
-					&& (_.isEmpty(search) || path.indexOf(search) !== -1);
+					&& _.contains(methods, model.get('method'))
+					&& (_.isEmpty(search) || model.get('path').indexOf(search) !== -1);
 			});
 			return new Backbone.Collection(filtered);
 		}
