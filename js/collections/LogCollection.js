@@ -3,9 +3,11 @@ define(function(){
 		url: 'http://localhost:3000/logs',
 		parse: function(response) {
 			var array = response.logs;
-			_.each(array, function(item) { item.method = item.request.split(' ')[0]; });
-			_.each(array, function(item) { item.path = item.request.split(' ')[1]; });
-			_.each(array, function(item) { delete item.request; });
+			_.each(array, function(item) { 
+				item.method = item.request.split(' ')[0];
+				item.path = item.request.split(' ')[1];
+				delete item.request; 
+			});
 			return array;
 		},
 		filterBy: function(statuses, methods, search) {
