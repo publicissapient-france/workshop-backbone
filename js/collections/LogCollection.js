@@ -2,12 +2,16 @@ define(function(){
 	return Backbone.Collection.extend({
 		url: 'http://localhost:3000/logs',
 		parse: function(response) {
-			return response.logs;
+			var array = response.logs;
+			_.each(array, function(item) { item.method = item.request.split(' ')[0]; });
+			_.each(array, function(item) { item.path = item.request.split(' ')[1]; });
+			_.each(array, function(item) { delete item.request; });
+			return array;
 		},
 		filterBy: function(statuses, methods, search) {
 			filtered = this.filter(function(model) {
-				var method = model.get('request').split(' ')[0],
-					path = model.get('request').split(' ')[1];
+				var method = model.get('method'),
+					path = model.get('path');
 
 				return _.contains(statuses, model.get('status')) 
 					&& _.contains(methods, method)

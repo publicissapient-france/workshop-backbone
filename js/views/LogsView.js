@@ -19,7 +19,7 @@ define(['collections/LogCollection', 'text!../templates/table.tmpl'], function(L
 		_hydrateModel: function() {
 			this.model.clear();
 			var statuses = this._toKeyArray(_.sortBy(_.uniq(this.collection.pluck('status')), function(status) { return status; }));
-			var methods = this._toKeyArray(_.uniq(_.map(this.collection.pluck('request'), function(model) { return model.split(' ')[0]; })));
+			var methods = this._toKeyArray(_.uniq(this.collection.pluck('method')));
 			this.model.params(statuses, methods);
 		},
 		_toKeyArray: function(obj) {
