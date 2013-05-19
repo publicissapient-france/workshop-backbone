@@ -1,0 +1,22 @@
+<table id="hor-zebra" summary="Employee Pay Sheet">
+	<thead>
+		<tr>
+			<th>Path</th>
+			<th>Method</th>
+			<th>Status</th>
+			<th>Size</th>
+			<th>Time</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% _.each(obj, function(log) { %>
+		<tr>
+			<td><%= log.host %><%= log.request.split(' ')[1] %></td>
+			<td><%= log.request.split(' ')[0] %></td>
+			<td><%= log.status %></td>
+			<td><%= log.size %>B</td>
+			<td><%= log.date.substring(11,16) %></td>
+		</tr>
+		<% }); %>
+	</tbody>
+</table>

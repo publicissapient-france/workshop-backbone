@@ -1,0 +1,13 @@
+<div>HTTP status</div>
+<ul id="statuses">
+	<% _.each(obj.statuses, function(status) { %>
+    <li><input type="checkbox" id="<%= status.id %>" <% if(status.checked) {%>checked<% } %>><label for="<%= status.id %>"><%= status.id %></label></li>
+    <% }) %>
+</ul>
+<br>
+<div>HTTP method</div>
+<ul id="methods">
+	<% _.each(obj.methods, function(method) { %>
+    <li><input type="checkbox" id="<%= method.id %>" <% if(method.checked) {%>checked<% } %>><label for="<%= method.id %>"><%= method.id %></label></li>
+    <% }) %>
+</ul>
