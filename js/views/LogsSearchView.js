@@ -11,6 +11,7 @@ define(['text!../templates/search.tmpl'], function(template) {
 			this.$el.html(template);
 		},
 		searchByValue: function(value) {
+			this.toggleX(value);
 			this.model.set('search', value);
 		},
 		search: function(event) {
@@ -19,6 +20,12 @@ define(['text!../templates/search.tmpl'], function(template) {
 		reset: function() {
 			this.$('input').val('');
 			this.searchByValue('');
+		},
+		toggleX: function(value) {
+			if(_.isEmpty(value))
+				this.$('a').css('display', 'none');
+			else
+				this.$('a').css('display', 'block');
 		}
 	});
 });

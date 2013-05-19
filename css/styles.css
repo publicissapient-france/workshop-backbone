@@ -54,7 +54,7 @@ header input {
 }
 
 header .search_clear {
-    display: block;
+    display: none;
     position: absolute;
     top: 2px;
     right: 3px;
