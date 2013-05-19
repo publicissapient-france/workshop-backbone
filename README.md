@@ -29,4 +29,8 @@ Filter by status and method
 
 Search
 ------
-- to be done
+- create a LogsSearchView
+- give it the LogsAppModel instance shared among the app
+- listen to keyup event on the input
+- set the search attribute of the model
+- change the LogsView filter with this value

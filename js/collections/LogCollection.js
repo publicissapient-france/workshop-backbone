@@ -4,10 +4,14 @@ define(function(){
 		parse: function(response) {
 			return response.logs;
 		},
-		filterByStatusesAndMethods: function(statuses, methods) {
+		filterBy: function(statuses, methods, search) {
 			filtered = this.filter(function(model) {
-				var method = model.get('request').split(' ')[0];
-				return _.contains(statuses, model.get('status')) && _.contains(methods, method);
+				var method = model.get('request').split(' ')[0],
+					path = model.get('request').split(' ')[1];
+
+				return _.contains(statuses, model.get('status')) 
+					&& _.contains(methods, method)
+					&& (_.isEmpty(search) || path.indexOf(search) !== -1);
 			});
 			return new Backbone.Collection(filtered);
 		}

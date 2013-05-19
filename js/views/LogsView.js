@@ -5,21 +5,20 @@ define(['collections/LogCollection', 'text!../templates/table.tmpl'], function(L
 			this.collection = new LogCollection();
 			
 			this.listenTo(this.collection, 'sync', this.render);
-			this.listenTo(this.model.statuses, 'change', this.renderFiltered);
-			this.listenTo(this.model.methods, 'change', this.renderFiltered);
+			this.listenTo(this.model, 'change', this.renderFiltered);
 			this.listenToOnce(this.collection, 'sync', this._hydrateModel);
 
 			this.collection.fetch();
 		},
 		render: function() {
-			console.log(this.collection.toJSON());
 			this.$el.html(this.template(this.collection.toJSON()));
 		},
 		renderFiltered: function() {
 			var statuses = _.pluck(this.model.statuses.where({'checked': true}), 'id');
 			var methods = _.pluck(this.model.methods.where({'checked': true}), 'id');
+			var search = this.model.get('search');
 
-			this.$el.html(this.template(this.collection.filterByStatusesAndMethods(statuses, methods).toJSON()));
+			this.$el.html(this.template(this.collection.filterBy(statuses, methods, search).toJSON()));
 		},
 		_hydrateModel: function() {
 			this.model.clear();
