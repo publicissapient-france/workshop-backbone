@@ -4,16 +4,12 @@ define(['collections/LogCollection', 'text!../templates/table.tmpl'], function(L
 		initialize: function() {
 			this.collection = new LogCollection();
 			
-			this.listenTo(this.collection, 'sync', this.render);
-			this.listenTo(this.model, 'change', this.renderFiltered);
+			this.listenTo(this.model, 'change', this.render);
 			this.listenToOnce(this.collection, 'sync', this._hydrateModel);
 
 			this.collection.fetch();
 		},
 		render: function() {
-			this.$el.html(this.template(this.collection.toJSON()));
-		},
-		renderFiltered: function() {
 			var statuses = _.pluck(this.model.statuses.where({'checked': true}), 'id');
 			var methods = _.pluck(this.model.methods.where({'checked': true}), 'id');
 			var search = this.model.get('search');

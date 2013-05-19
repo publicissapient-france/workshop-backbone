@@ -10,18 +10,18 @@ define(['text!../templates/search.tmpl'], function(template) {
 		render: function() {
 			this.$el.html(template);
 		},
-		searchByValue: function(value) {
-			this.toggleX(value);
+		_searchByValue: function(value) {
+			this._toggleX(value);
 			this.model.set('search', value);
 		},
 		search: function(event) {
-			this.searchByValue($(event.target).val());
+			this._searchByValue($(event.target).val());
 		},
 		reset: function() {
 			this.$('input').val('');
-			this.searchByValue('');
+			this._searchByValue('');
 		},
-		toggleX: function(value) {
+		_toggleX: function(value) {
 			if(_.isEmpty(value))
 				this.$('a').css('display', 'none');
 			else
