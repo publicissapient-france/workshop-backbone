@@ -6,16 +6,16 @@ define(['text!../templates/filter.tmpl'], function(template) {
 		},
 		events: {
 			'click #statuses input': 'changeStatuses',
-			'click #methods input': 'changeMethods',
+			'click #methods input': 'changeMethods'
 		},
 		render: function() {
 			this.$el.html(this.template(this.model.toJSON()));
 		},
 		changeStatuses: function(event) {
-			this.toggle(event, this.model.statuses);
+			this.toggle(event, this.model.get("statuses"));
 		},
 		changeMethods: function(event) {
-			this.toggle(event, this.model.methods);
+			this.toggle(event, this.model.get("methods"));
 		},
 		toggle: function(event, collection) {
 			var id = event.target.id;

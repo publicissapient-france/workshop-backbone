@@ -24,10 +24,12 @@ define(['text!../templates/search.tmpl'], function(template) {
 			this._searchByValue('');
 		},
 		_toggleX: function(value) {
-			if(_.isEmpty(value))
+			if(_.isEmpty(value)) {
 				this.$('a').css('display', 'none');
-			else
+            }
+			else {
 				this.$('a').css('display', 'block');
+            }
 		}
 	});
 });
