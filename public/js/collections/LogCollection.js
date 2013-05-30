@@ -5,7 +5,7 @@ define(function() {
 		url: '/data/logs.json',
 
         parse: function(response) {
-			return _.map(response.logs, function(item) { 
+			return _.map(response, function(item) {
 				item.method = item.request.split(' ')[0];
 				item.path = item.request.split(' ')[1];
 				delete item.request; 

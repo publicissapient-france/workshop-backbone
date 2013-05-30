@@ -1,5 +1,4 @@
-{
-    "logs": [
+[
     {
         "id": 1,
         "host": "210.116.59.164",
@@ -89,4 +88,4 @@
         "size": 10000,
         "useragent": "AppleWebKit/537.31 (KHTML, like Gecko)"
     }
-]}
+]
