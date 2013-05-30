@@ -1,7 +1,8 @@
-define(function(){
+define(function() {
+
 	var LogCollection = Backbone.Collection.extend({
 
-		url: 'http://localhost:3000/logs',
+		url: '/data/logs.json',
 
         parse: function(response) {
 			return _.map(response.logs, function(item) { 
