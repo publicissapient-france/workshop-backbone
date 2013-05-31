@@ -1,33 +1,16 @@
 define(['collections/LogCollection', 'text!../templates/table.tmpl'], function(LogCollection, template) {
-	return Backbone.View.extend({
-		template: _.template(template),
-		initialize: function() {
-			this.collection = new LogCollection();
+	var LogsView = Backbone.View.extend({
 
-			this.listenTo(this.model, 'change', this.render);
-			this.listenToOnce(this.collection, 'sync', this._hydrateModel);
+        events: {
+        },
 
-			this.collection.fetch();
-		},
-		render: function() {
-			var statuses = _.pluck(this.model.get("statuses").where({'checked': true}), 'id');
-			var methods = _.pluck(this.model.get("methods").where({'checked': true}), 'id');
-			var search = this.model.get('search');
+        initialize: function() {
+        },
 
-			this.$el.html(this.template(this.collection.byStatus(statuses).byMethod(methods).bySearch(search).toJSON()));
-		},
+        render: function() {
+        }
 
-		_hydrateModel: function() {
-			var statuses = this._toKeyArray(_.sortBy(_.uniq(this.collection.pluck('status')), function(status) { return status; }));
-			var methods = this._toKeyArray(_.uniq(this.collection.pluck('method')));
-			this.model.params(statuses, methods);
-		},
-
-		_toKeyArray: function(obj) {
-			return _.reduce(obj, function(memo, value) {
-				memo.push({id: value, checked: true});
-				return memo;
-			}, []);
-		}
 	});
+
+    return LogsView;
 });
