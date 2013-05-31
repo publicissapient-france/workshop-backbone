@@ -21,11 +21,12 @@ require(['views/LogsView', 'views/LogsFilterView', 'views/LogsSearchView', 'mode
     var model = new LogsFilterModel();
 
     // etape 1
-	$('#content').html(new LogsView({model: model}).el);
+	var logsView = new LogsView({model: model, el : $('#content')});
 
     // etape 2
-    $('header').html(new LogsSearchView({model: model}).el);
+    var searchView = new LogsSearchView({model: model, el : $('header')});
 
     // etape 3
-    $('#navigation').html(new LogsFilterView({model: model}).el);
+    var filterView = new LogsFilterView({model: model, el : $('#navigation')});
+
 });
