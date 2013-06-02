@@ -3,8 +3,8 @@
 ## prerequisite
 
 You'll need node.js for this workshop. If you don't have it already, you'll have to install it.
-    - on Ubuntu or other apt, node is available on universes repositories.
-    - on Window or MacOS, use the installer : http://nodejs.org/download/
+- on Ubuntu or other apt, node is available on universes repositories.
+- on Window or MacOS, use the installer : http://nodejs.org/download/
 
 ## Step by step tutorial
 
