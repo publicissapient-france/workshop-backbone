@@ -18,15 +18,9 @@ require.config({
 });
 
 require(['views/LogsView', 'views/LogsFilterView', 'views/LogsSearchView', 'models/LogsFilterModel'], function(LogsView, LogsFilterView, LogsSearchView, LogsFilterModel) {
-    var model = new LogsFilterModel();
 
     // etape 1
-	var logsView = new LogsView({model: model, el : $('#content')});
-
-    // etape 2
-    var searchView = new LogsSearchView({model: model, el : $('header')});
-
-    // etape 3
-    var filterView = new LogsFilterView({model: model, el : $('#navigation')});
+	var logsView = new LogsView({el : $('#content')});
+	//$('#content').html(logsView.el); --> better but not simple in first
 
 });
