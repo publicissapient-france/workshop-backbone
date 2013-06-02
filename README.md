@@ -1,19 +1,31 @@
-workshop-backbone
-=================
+# workshop-backbone
 
-Bootstrap and log table
------------------------
-0) launch the server and open http://localhost:4000/
-1) open index.html, its fills with static content
-2) add app.js and require.js to index.html as script
-3) log table : show static data in Backbone View
+## prerequisite
+
+You'll need node.js for this workshop. If you don't have it already, you'll have to install it.
+    - on Ubuntu or other apt, node is available on universes repositories.
+    - on Window or MacOS, use the installer : http://nodejs.org/download/
+
+## Step by step tutorial
+
+
+### First Step : Bootstraping application and displaying the log table
+
+0. launch the server (node server.js) and open http://localhost:4000. Ensure the page is displayed correctly.
+
+1. Open your favorite IDE then open index.html, which is filled with static content.
+
+2. add require.js and app.js to index.html as script
+
+3. log table : show static data in Backbone View
     - cut/paste the table in index.html#content into the templates/table.html
     - create LogsView in app.js :
     - bind #content to LogsView.el in app.js : 2 methods (at construct view or after)
     - implement LogsView "render" method : add the html template in the "el" element
     - call "render" in initialize
     - test in navigator
-4) log Table : show real data
+
+4. log Table : show real data
     - define data url in LogsCollection
     - in the initialize LogView method:
         - create a LogCollection as view collection attribute,
@@ -25,8 +37,17 @@ Bootstrap and log table
     - careful, json data from server doesn't match exactly the columns expected : you have to implement the parse method of the model of LogCollection
 
 
-Filter by status and method
----------------------------
+### Step two : Displaying search filter and using it
+
+- create a LogsSearchView
+- give it the LogsAppModel instance shared among the app
+- listen to keyup event on the input
+- set the search attribute of the model
+- change the LogsView filter with this value
+
+
+### Step three : Displaying log filter (by status and method) and using it
+
 - create a LogsFilterView and extract the filter.tmpl from index.html
 - listen to click events on statuses & methods ul
 - create a LogsAppModel with two collections, statuses and methods, to store the filters states
@@ -34,11 +55,3 @@ Filter by status and method
 - hydrate this model when LogsView is rendered for the first time
 - listenTo this model in LogsFilterView and <%= mustash %> the template with the unique values
 - listenTo this model collections in LogsView and filter the LogCollection following the selected filters
-
-Search
-------
-- create a LogsSearchView
-- give it the LogsAppModel instance shared among the app
-- listen to keyup event on the input
-- set the search attribute of the model
-- change the LogsView filter with this value
