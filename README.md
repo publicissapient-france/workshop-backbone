@@ -17,7 +17,7 @@ Bootstrap and log table
     - define data url in LogsCollection
     - in the initialize LogView method:
         - create a LogCollection as view collection attribute,
-        - listenTo collection sync event for rendering view,
+        - listenTo collection sync event for rendering view, (instead of calling explicitly render !)
         - fetch collection
     - Modify template : add <%= mustash %> to the template markup
     - format every data in the template file with <% any js code you need %>
