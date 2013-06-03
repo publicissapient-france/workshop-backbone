@@ -8,33 +8,41 @@ You'll need node.js for this workshop. If you don't have it already, you'll have
 
 ## Step by step tutorial
 
+### Bootstraping
+
+1. go to the projet folder and type "npm install"
+
+2. launch the server ("node server.js") and open http://localhost:4000.
+
+3. Ensure the page is displayed correctly.
+
+4. Open your favorite IDE then open index.html, which is filled with static content. The main objective of this workshop
+will be to dynamise this content using Backbone and the data delivered by the server.
 
 ### First Step : Bootstraping application and displaying the log table
 
-0. launch the server (node server.js) and open http://localhost:4000. Ensure the page is displayed correctly.
+In this first step, we gonna use a Backbone View (LogsView) to display the static data previously contained in index.html, then we gonna load the real data from the server and display it instead. 
 
-1. Open your favorite IDE then open index.html, which is filled with static content.
 
-2. add require.js and app.js to index.html as script
-
-3. log table : show static data in Backbone View
+1. #### Displaying static data in Backbone View
     - cut/paste the table in index.html#content into the templates/table.html
-    - create LogsView in app.js :
+    - instantiate the LogView in app.js
     - bind #content to LogsView.el in app.js : 2 methods (at construct view or after)
-    - implement LogsView "render" method : add the html template in the "el" element
+    - implement LogsView "render" method : inject the html template in the "el" element. (Feel free to use your prefered template engine : underscore tmpl or Handlebars. Both are included in global scope.)
     - call "render" in initialize
     - test in navigator
 
-4. log Table : show real data
-    - define data url in LogsCollection
-    - in the initialize LogView method:
-        - create a LogCollection as view collection attribute,
+2. #### Using real data
+    - Define data url in LogsCollection
+    - In the initialize method of LogView :
+        - create a LogCollection as view collection attribute
         - listenTo collection sync event for rendering view, (instead of calling explicitly render !)
-        - fetch collection
-    - Modify template : add <%= mustash %> to the template markup
-    - format every data in the template file with <% any js code you need %>
+        - fetch the collection
     - LogsView render method : inject collection.toJSON into template
-    - careful, json data from server doesn't match exactly the columns expected : you have to implement the parse method of the model of LogCollection
+    - Dynamise and adapt template : (using <%= underscore %> or {{#handlebars}} to the template markup)
+    - Format every data in the template file with <% any js code you need %>
+   
+    - !!! careful, json data from server doesn't match exactly the columns expected : you have to implement the parse method of the model (Log) of LogCollection
 
 
 ### Step two : Displaying search filter and using it
