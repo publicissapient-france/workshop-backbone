@@ -1,6 +1,6 @@
-# workshop-backbone
+# Xebia's "mois du js" Backbone workshop
 
-## prerequisites
+## Prerequisites
 
 You'll need node.js for this workshop. If you don't have it already, you'll have to install it.
 - on Ubuntu or other apt, node is available on universes repositories.
@@ -25,12 +25,12 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
 
 
 1. #### Displaying static data in Backbone View
-    - cut/paste the table in index.html#content into the templates/table.html
-    - instantiate the LogView in app.js
-    - bind #content to LogsView.el in app.js : 2 methods (at construct view or after)
-    - implement LogsView "render" method : inject the html template in the "el" element. (Feel free to use your prefered template engine : underscore tmpl or Handlebars. Both are included in global scope.)
-    - call "render" in initialize
-    - test in navigator
+    - Cut/paste the table in index.html#content into the templates/table.html
+    - Instantiate the LogView in app.js
+    - Bind #content to LogsView.el in app.js : 2 methods (at construct view or after)
+    - Implement LogsView "render" method : inject the html template in the "el" element. (Feel free to use your prefered template engine : underscore tmpl or Handlebars. Both are included in global scope.)
+    - Call "render" in initialize
+    - Test in navigator
 
 2. #### Using real data
     - Define data url in LogsCollection
