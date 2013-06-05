@@ -11,6 +11,7 @@ define(['models/LogCollection', 'text!templates/table.tmpl'], function (LogColle
             console.log("LogsView initializing");
             this.collection = new LogCollection();
             this.listenTo(this.collection, "sync", this.render);
+            this.listenTo(this.model, "change", this.renderFilteredResults);
 
             this.collection.fetch();
         },
@@ -18,6 +19,12 @@ define(['models/LogCollection', 'text!templates/table.tmpl'], function (LogColle
         render: function () {
             console.log("LogsView rendering");
             this.$el.html(this.template(this.collection.toJSON()));
+        },
+
+        renderFilteredResults: function () {
+            console.log("LogsView filtering");
+            var textSearch = this.model.get('search');
+            this.$el.html(this.template(this.collection.byTextSearch(textSearch).toJSON()));
         }
 
     });
