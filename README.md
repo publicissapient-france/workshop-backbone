@@ -45,7 +45,7 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
     - !!! careful, json data from server doesn't match exactly the columns expected : you have to implement the parse method of the model (Log) of LogCollection
 
 
-### Step two : Displaying search filter and using it
+### Step 2: Displaying search filter and using it
 
 1. ### Displaying static search element in Backbone View
     - We gonna use LogsSearchView.
@@ -62,23 +62,45 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
     - Add method into LogsView to re-render new filtered collection.
 
 
-### Step three : Displaying log filter (by status and method) and using it
+### Step 3: Displaying log filter (by status and method) and using it
 
 1. ### Displaying static filter element in Backbone View
     - We gonna use LogsFilterView
     _ Cut/past the #navigation content in index.html into templates/filter.tmpl
     - Instantiate the LogsFilterView in app.js (do not forget to define LogsFilterModel too).
-    - Emplement the LogsFilterView "render" method (like step 1 and 2) and call it.
+    - Implement the LogsFilterView "render" method (like step 1 and 2) and call it.
 
 2. ### Make it works for real !
     - Subscribe to status and method checkbox click. It will filter log list.
     - add methods to update filterModel with new filter's values.
     - Improve the re-render filter method in LogsView to catch new filters (statuses and methods).
 
-- create a LogsFilterView and extract the filter.tmpl from index.html
-- listen to click events on statuses & methods ul
-- create a LogsAppModel with two collections, statuses and methods, to store the filters states
-- give this model to both views
-- hydrate this model when LogsView is rendered for the first time
-- listenTo this model in LogsFilterView and <%= mustash %> the template with the unique values
-- listenTo this model collections in LogsView and filter the LogCollection following the selected filters
+
+### Step 4: Show a log's details when clicking on table line
+
+In this final step, we gonna show details panel on the right, with selected log data. Each table line needs to know the log model it displays, to trigger an appropriate event.
+
+1. #### Displaying static data in Backbone View
+    - Cut/paste the #detail content in index.html into the templates/details.tmpl
+    - Create a DetailsView and instanciate it in app.js
+    - Use the template as dynamic html (look at previous views construction)
+    - Implement render method, and insert the template
+    - Call "render" in initialize
+    - Test in navigator
+
+2. #### Trigger an event and share the log that is clicked in table
+    - Isolate logs table lines creating a new view: LogLineView
+        - as the DOM element we need is a tr (and not a div), do not forget to specify the tagName attribute of the view (@see [view extension with a tagName](http://backbonejs.org/#View-extend))
+    - Cut/past the each loop content from templates/table.tmpl to templates/table-line.tmpl
+    - Make the LogLineView render the template passing it its model
+    - Delegate rendering from LogsView to LogLineView:
+        - modify LogsView render method, in order to loop on the collection
+        - in this loop, append each time a new LogLineView that is responsible for its log as a model
+        - do not forget to declare the dependency to LogLineView with requirejs
+    - In LogLineView, bind the click event:
+        - to trigger a Backbone event (@see [Backbone.trigger](http://backbonejs.org/#Events-trigger)), for example "details:show", with the log as an argument
+        - to add the css class "selected" on the view el
+
+3. #### Listen to this event and refresh details panel
+    - In DetailsView, subscribe to the "details:show" event with listenTo
+    - Call a method (that takes a parameter) that renders the template with the log model
