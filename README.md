@@ -18,6 +18,9 @@ You'll need node.js for this workshop. If you don't have it already, you'll have
 
 4. Open your favorite IDE then open index.html, which is filled with static content. The main objective of this workshop will be to make this content dynamic using Backbone and the data delivered by the server.
 
+5. Open [Backbone documentation](http://backbonejs.org/) and put your hands on !
+
+
 ### First Step : Bootstraping application and displaying the log table
 
 In this first step, we gonna use a Backbone View (LogsView) to display the static data previously contained in index.html, then we gonna load the real data from the server and display it instead. 
@@ -27,7 +30,7 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
     - Cut/paste the table in index.html#content into the templates/table.html
     - Instantiate the LogView in app.js
     - Bind #content to LogsView.el in app.js : 2 methods (at construct view or after)
-    - Implement LogsView "render" method : inject the html template in the "el" element. (Feel free to use your prefered template engine : underscore tmpl or Handlebars. Both are included in global scope.)
+    - Implement LogsView "render" method : inject the html template in the "el" element. (Feel free to use your favorite template engine : [underscore](http://underscorejs.org/#template) or [Handlebars](http://handlebarsjs.com/expressions.html). Both are included in global scope.)
     - Call "render" in initialize
     - Test in navigator
 
@@ -38,7 +41,7 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
         - listenTo collection sync event for rendering view, (instead of calling explicitly render !)
         - fetch the collection
     - LogsView render method : inject collection.toJSON into template
-    - Dynamise and adapt template : (using <%= underscore %> or {{#handlebars}} to the template markup)
+    - Make template dynamic: (using <%= underscore %> or {{#handlebars}} to the template markup)
     - Format every data in the template file with <% any js code you need %>
     - !!! careful, json data from server doesn't match exactly the columns expected : you have to implement the parse method of the model (Log) of LogCollection
 
