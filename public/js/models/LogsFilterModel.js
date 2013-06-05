@@ -1,13 +1,12 @@
-define(function(){
-	var LogsFilterModel = Backbone.Model.extend({
+define(function () {
 
-        defaults : {
+    return Backbone.Model.extend({
+
+        defaults: {
         },
 
-		initialize: function() {
-		}
+        initialize: function () {
+        }
 
-	});
-
-    return LogsFilterModel;
+    });
 });

@@ -1,25 +1,10 @@
-define(function() {
+define(['./LogModel'], function (LogModel) {
 
-    var Log = Backbone.Model.extend({
+    return Backbone.Collection.extend({
 
-	    parse : function(response){
-	        var requestData = response.request.split(' ');
-	        response.method = requestData[0];
-	        response.path = requestData[1];
-            return response;
-	    }
+        model: LogModel,
 
-
+        url: 'data/logs.json'
 
     });
-
-	var LogCollection = Backbone.Collection.extend({
-
-	    model : Log,
-
-	    url : 'data/logs.json',
-
-	});
-
-	return LogCollection;
 });
