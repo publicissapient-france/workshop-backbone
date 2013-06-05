@@ -22,9 +22,15 @@ define(['models/LogCollection', 'text!templates/table.tmpl'], function (LogColle
         },
 
         renderFilteredResults: function () {
-            console.log("LogsView filtering");
-            var textSearch = this.model.get('search');
-            this.$el.html(this.template(this.collection.byTextSearch(textSearch).toJSON()));
+            var search = this.model.get('search'),
+                statuses = this.model.get('statuses'),
+                methods = this.model.get('methods');
+
+            var results = this.collection
+                .bySearch(search)
+                .byStatuses(statuses)
+                .byMethods(methods);
+            this.$el.html(this.template(results.toJSON()));
         }
 
     });

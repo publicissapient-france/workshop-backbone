@@ -29,4 +29,8 @@ require(['views/LogsView', 'views/LogsFilterView', 'views/LogsSearchView', 'mode
     var searchView = new LogsSearchView({el: $('header'), model: filterModel});
     // $('header').html(new LogsSearchView().el);
 
+    // step 3
+    var filterView = new LogsFilterView({el: $('#navigation'), model: filterModel});
+    // $('#navigation').html(new LogsSearchView().el);
+
 });

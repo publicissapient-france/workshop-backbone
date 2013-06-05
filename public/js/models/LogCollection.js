@@ -6,9 +6,21 @@ define(['./LogModel'], function (LogModel) {
 
         url: 'data/logs.json',
 
-        byTextSearch: function (textSearch) {
+        bySearch: function (search) {
             return new LogCollection(this.filter(function (model) {
-                return model.get('path').indexOf(textSearch) !== -1;
+                return model.get('path').indexOf(search) !== -1;
+            }));
+        },
+
+        byStatuses: function (statuses) {
+            return new LogCollection(this.filter(function (model) {
+                return _.contains(statuses, model.get('status'));
+            }));
+        },
+
+        byMethods: function (methods) {
+            return new LogCollection(this.filter(function (model) {
+                return _.contains(methods, model.get('method'));
             }));
         }
     });
