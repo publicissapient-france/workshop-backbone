@@ -130,6 +130,10 @@ header .search_clear {
     padding: 0px 8px 10px 8px;
 }
 
+#content table tr {
+    cursor: pointer;
+}
+
 #content table tr:nth-child(even) {
     background: rgba(127, 50, 111, 0.1);
 }

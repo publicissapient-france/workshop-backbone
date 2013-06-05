@@ -16,6 +16,8 @@ define(['text!templates/table-line.tmpl'], function (template) {
         },
 
         showDetails: function () {
+            this.$el.siblings().removeClass('selected');
+            this.$el.addClass('selected');
             Backbone.trigger('details:show', this.model);
         }
 
