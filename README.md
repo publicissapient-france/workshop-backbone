@@ -64,6 +64,17 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
 
 ### Step three : Displaying log filter (by status and method) and using it
 
+1. ### Displaying static filter element in Backbone View
+    - We gonna use LogsFilterView
+    _ Cut/past the #navigation content in index.html into templates/filter.tmpl
+    - Instantiate the LogsFilterView in app.js (do not forget to define LogsFilterModel too).
+    - Emplement the LogsFilterView "render" method (like step 1 and 2) and call it.
+
+2. ### Make it works for real !
+    - Subscribe to status and method checkbox click. It will filter log list.
+    - add methods to update filterModel with new filter's values.
+    - Improve the re-render filter method in LogsView to catch new filters (statuses and methods).
+
 - create a LogsFilterView and extract the filter.tmpl from index.html
 - listen to click events on statuses & methods ul
 - create a LogsAppModel with two collections, statuses and methods, to store the filters states
