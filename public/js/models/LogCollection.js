@@ -1,14 +1,8 @@
-define(function() {
+define(['./LogModel'], function(LogModel) {
 
-    var Log = Backbone.Model.extend({
-    });
+	return Backbone.Collection.extend({
 
-
-	var LogCollection = Backbone.Collection.extend({
-
-	    model:Log
+	    model:LogModel
 
 	});
-
-	return LogCollection;
 });

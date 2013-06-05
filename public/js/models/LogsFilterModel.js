@@ -1,5 +1,6 @@
 define(function(){
-	var LogsFilterModel = Backbone.Model.extend({
+
+	return Backbone.Model.extend({
 
         defaults : {
         },
@@ -8,6 +9,4 @@ define(function(){
 		}
 
 	});
-
-    return LogsFilterModel;
 });
