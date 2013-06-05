@@ -1,12 +1,13 @@
-define(['models/LogCollection', 'text!../templates/table.tmpl'], function(LogCollection, template) {
-	var LogsView = Backbone.View.extend({
+define(['models/LogCollection', 'text!templates/table.tmpl'], function (LogCollection, template) {
+
+    return Backbone.View.extend({
 
         template: _.template(template),
 
         events: {
         },
 
-        initialize: function() {
+        initialize: function () {
             console.log("LogsView initializing");
             this.collection = new LogCollection();
             this.listenTo(this.collection, "sync", this.render);
@@ -14,12 +15,10 @@ define(['models/LogCollection', 'text!../templates/table.tmpl'], function(LogCol
             this.collection.fetch();
         },
 
-        render: function() {
+        render: function () {
             console.log("LogsView rendering");
             this.$el.html(this.template(this.collection.toJSON()));
         }
 
-	});
-
-    return LogsView;
+    });
 });

@@ -1,17 +1,15 @@
-define(['text!../templates/filter.tmpl'], function(template) {
+define(['text!templates/filter.tmpl'], function (template) {
 
-	var LogsFilterView = Backbone.View.extend({
+    return Backbone.View.extend({
 
         events: {
         },
 
-		initialize: function() {
-		},
+        initialize: function () {
+        },
 
-		render: function() {
-		}
+        render: function () {
+        }
 
-	});
-
-    return LogsFilterView;
+    });
 });
