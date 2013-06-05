@@ -20,7 +20,7 @@ require.config({
 });
 
 require(["Handlebars", 'views/LogsView', 'views/LogsFilterView', 'views/LogsSearchView', 'models/LogsFilterModel'], function(Handlebars, LogsView, LogsFilterView, LogsSearchView, LogsFilterModel) {
-    // etape 1 : logView
+    // etape 1 : logsView
 
     // etape 2 : searchView
 

@@ -47,11 +47,19 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
 
 ### Step two : Displaying search filter and using it
 
-- create a LogsSearchView
-- give it the LogsAppModel instance shared among the app
-- listen to keyup event on the input
-- set the search attribute of the model
-- change the LogsView filter with this value
+1. ### Displaying static search element in Backbone View
+    - We gonna use LogsSearchView.
+    - Cut/past the header content in index.html into templates/search.tmpl
+    - Instantiate the LogsSearchView in app.js
+    - Implement the LogsSearchView "render" method (like step 1) and call it.
+
+2. ### Make it works for real
+    - Instantiate LogsFilterModel and share between views, we'll use it to share informations among the app.
+    - Listen to keyup event on the input
+    - Bind the event to new method that will set its model with new input field value.
+    - Add listener in LogsView in order to re-render filtered table on LogsFilterModel change.
+    - Create method into LogsCollection to filter logs by text search (see Collection filter method http://backbonejs.org/#Collection-Underscore-Methods).
+    - Add method into LogsView to re-render new filtered collection.
 
 
 ### Step three : Displaying log filter (by status and method) and using it

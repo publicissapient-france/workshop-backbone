@@ -10,6 +10,10 @@ define(function () {
 			size: 'my size',
 			method: 'my method',
 			path: 'my path'
+		},
+
+		parse:function(){
+			//TODO implement parse method in order to match displayed fields (method and path) from request.
 		}
 
 	});

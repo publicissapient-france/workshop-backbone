@@ -1,8 +1,10 @@
 define(['./LogModel'], function(LogModel) {
 
-	return Backbone.Collection.extend({
+	var LogCollection = Backbone.Collection.extend({
 
 	    model:LogModel
 
 	});
+
+	return LogCollection;
 });
