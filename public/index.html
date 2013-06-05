@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mois du JS</title>
-	<link rel="icon" type="image/png" href="css/favicon.png">
-	<link href="css/styles.css" rel="stylesheet" type="text/css">
-	<script data-main="js/app" src="js/libs/require-2.1.5.js"></script>
+    <title>Mois du JS</title>
+    <link rel="icon" type="image/png" href="css/favicon.png">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script data-main="js/app" src="js/libs/require-2.1.5.js"></script>
 </head>
 <body>
 
-	<header>
+    <header>
         <div>
             <input type="text">
             <a class="search_clear" href="#"></a>
         </div>
-	</header>
+    </header>
 
-	<div id="navigation">
-        <div><div>HTTP status</div>
-            <ul id="statuses">
-                <li><input type="checkbox" id="200" checked=""><label for="200">200</label></li>
-                <li><input type="checkbox" id="204" checked=""><label for="204">204</label></li>
-                <li><input type="checkbox" id="301" checked=""><label for="301">301</label></li>
-                <li><input type="checkbox" id="404" checked=""><label for="404">404</label></li>
-            </ul>
-            <br>
-            <div>HTTP method</div>
-            <ul id="methods">
-                <li><input type="checkbox" id="POST" checked=""><label for="POST">POST</label></li>
-                <li><input type="checkbox" id="GET" checked=""><label for="GET">GET</label></li>
-                <li><input type="checkbox" id="PUT" checked=""><label for="PUT">PUT</label></li>
-                <li><input type="checkbox" id="DELETE" checked=""><label for="DELETE">DELETE</label></li>
-            </ul></div>
-	</div>
+    <div id="navigation">
+        <div>HTTP status</div>
+        <ul>
+            <li><input type="checkbox" id="200"><label for="200">200</label></li>
+            <li><input type="checkbox" id="400"><label for="400">400</label></li>
+            <li><input type="checkbox" id="500"><label for="500">500</label></li>
+        </ul>
+        <br>
+        <div>HTTP method</div>
+        <ul>
+            <li><input type="checkbox" id="GET"><label for="GET">GET</label></li>
+            <li><input type="checkbox" id="POST"><label for="POST">POST</label></li>
+            <li><input type="checkbox" id="PUT"><label for="PUT">PUT</label></li>
+            <li><input type="checkbox" id="DELETE"><label for="DELETE">DELETE</label></li>
+        </ul>
+    </div>
 
-	<div id="content">
-        <div><table id="hor-zebra" summary="Employee Pay Sheet">
+    <div id="content">
+        <table id="hor-zebra">
             <thead>
             <tr>
                 <th>Path</th>
@@ -45,91 +44,43 @@
             </tr>
             </thead>
             <tbody>
-
             <tr>
-                <td>210.116.59.164/user</td>
+                <td>http://www.yahoo.com</td>
+                <td>GET</td>
+                <td>304</td>
+                <td>2898 B</td>
+                <td>10:36</td>
+            </tr>
+            <tr>
+                <td>http://www.amazon.fr</td>
                 <td>POST</td>
-                <td>404</td>
-                <td>1000B</td>
-                <td>04:09</td>
+                <td>401</td>
+                <td>12 B</td>
+                <td>10:27</td>
             </tr>
-
-            <tr>
-                <td>211.141.115.146/user</td>
+            <tr class="selected">
+                <td>http://www.google.fr</td>
                 <td>GET</td>
                 <td>200</td>
-                <td>2000B</td>
-                <td>05:09</td>
+                <td>715 B</td>
+                <td>10:42</td>
             </tr>
-
             <tr>
-                <td>211.141.115.145/profile</td>
-                <td>PUT</td>
-                <td>200</td>
-                <td>3000B</td>
-                <td>06:15</td>
-            </tr>
-
-            <tr>
-                <td>211.141.115.146/profile</td>
-                <td>GET</td>
-                <td>200</td>
-                <td>4000B</td>
-                <td>07:18</td>
-            </tr>
-
-            <tr>
-                <td>211.141.115.145/profile</td>
-                <td>PUT</td>
-                <td>301</td>
-                <td>5000B</td>
-                <td>08:32</td>
-            </tr>
-
-            <tr>
-                <td>211.141.115.146/account</td>
-                <td>GET</td>
-                <td>200</td>
-                <td>6000B</td>
-                <td>09:45</td>
-            </tr>
-
-            <tr>
-                <td>211.141.115.145/account</td>
+                <td>http://www.dude.fr</td>
                 <td>POST</td>
-                <td>200</td>
-                <td>7000B</td>
-                <td>10:22</td>
+                <td>401</td>
+                <td>12 B</td>
+                <td>10:27</td>
             </tr>
-
-            <tr>
-                <td>211.141.115.146/account</td>
-                <td>DELETE</td>
-                <td>204</td>
-                <td>8000B</td>
-                <td>11:13</td>
-            </tr>
-
-            <tr>
-                <td>211.141.115.145/user</td>
-                <td>GET</td>
-                <td>200</td>
-                <td>9000B</td>
-                <td>12:15</td>
-            </tr>
-
-            <tr>
-                <td>211.141.115.146/user</td>
-                <td>DELETE</td>
-                <td>200</td>
-                <td>10000B</td>
-                <td>13:17</td>
-            </tr>
-
             </tbody>
-        </table></div>
+        </table>
+    </div>
 
-	</div>
-
+    <div id="detail">
+        <h1>Google</h1>
+        <div class="label">GET</div>
+        <div class="label">200</div>
+        <!-- <div class="empty">please select a line</div> -->
+    </div>
 </body>
 </html>
