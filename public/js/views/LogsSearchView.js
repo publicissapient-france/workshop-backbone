@@ -1,5 +1,6 @@
-define(['text!../templates/search.tmpl'], function(template) {
-	var LogsSearchView = Backbone.View.extend({
+define(['text!templates/search.tmpl'], function(template) {
+
+	return Backbone.View.extend({
 
         events: {
         },
@@ -12,5 +13,4 @@ define(['text!../templates/search.tmpl'], function(template) {
 
 	});
 
-    return LogsSearchView;
 });

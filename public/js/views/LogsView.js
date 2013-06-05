@@ -1,5 +1,6 @@
-define(['models/LogCollection', 'text!../templates/table.tmpl'], function(LogCollection, tableTpl) {
-	var LogsView = Backbone.View.extend({
+define(['models/LogCollection', 'text!templates/table.tmpl'], function(LogCollection, tableTpl) {
+
+	return Backbone.View.extend({
 
         // underscore : template : _.template(tableTpl)
         // handlebars : template : Handlebars.compile(tableTpl)
@@ -15,5 +16,4 @@ define(['models/LogCollection', 'text!../templates/table.tmpl'], function(LogCol
 
 	});
 
-    return LogsView;
 });
