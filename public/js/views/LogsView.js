@@ -1,10 +1,9 @@
-define(['models/LogCollection', 'text!templates/table.tmpl'], function (LogCollection, template) {
+define(['models/LogCollection', 'text!templates/table.tmpl', 'views/LogLineView'], function (LogCollection, template, LogLineView) {
 
     return Backbone.View.extend({
 
-        template: _.template(template),
-
         events: {
+            'click tr': 'showDetails'
         },
 
         initialize: function () {
@@ -18,7 +17,11 @@ define(['models/LogCollection', 'text!templates/table.tmpl'], function (LogColle
 
         render: function () {
             console.log("LogsView rendering");
-            this.$el.html(this.template(this.collection.toJSON()));
+            this.$el.html(template);
+            var tbody = this.$('tbody').empty();
+            this.collection.each(function (log) {
+                tbody.append(new LogLineView({model: log}).render().el);
+            });
         },
 
         renderFilteredResults: function () {
@@ -30,7 +33,11 @@ define(['models/LogCollection', 'text!templates/table.tmpl'], function (LogColle
                 .bySearch(search)
                 .byStatuses(statuses)
                 .byMethods(methods);
-            this.$el.html(this.template(results.toJSON()));
+
+            var tbody = this.$('tbody').empty();
+            results.each(function (log) {
+                tbody.append(new LogLineView({model: log}).render().el);
+            });
         }
 
     });

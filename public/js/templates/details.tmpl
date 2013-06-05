@@ -1,0 +1,11 @@
+<% if (obj) { %>
+
+    <h1><%= obj.useragent %></h1>
+    <div class="label"><%= obj.method %></div>
+    <div class="label"><%= obj.status %></div>
+
+<% } else { %>
+
+    <div class="empty">please select a line</div>
+
+<% } %>

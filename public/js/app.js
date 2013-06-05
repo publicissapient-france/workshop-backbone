@@ -13,11 +13,12 @@ require.config({
         'views/LogsView': { deps: ['backbone'] },
         'views/LogsFilterView': { deps: ['backbone'] },
         'views/LogsSearchView': { deps: ['backbone'] },
+        'views/DetailsView': { deps: ['backbone'] },
         'models/LogsFilterModel': { deps: ['backbone'] }
     }
 });
 
-require(['views/LogsView', 'views/LogsFilterView', 'views/LogsSearchView', 'models/LogsFilterModel'], function (LogsView, LogsFilterView, LogsSearchView, LogsFilterModel) {
+require(['views/LogsView', 'views/LogsFilterView', 'views/LogsSearchView', 'views/DetailsView', 'models/LogsFilterModel'], function (LogsView, LogsFilterView, LogsSearchView, DetailsView, LogsFilterModel) {
 
     var filterModel = new LogsFilterModel();
 
@@ -31,6 +32,10 @@ require(['views/LogsView', 'views/LogsFilterView', 'views/LogsSearchView', 'mode
 
     // step 3
     var filterView = new LogsFilterView({el: $('#navigation'), model: filterModel});
-    // $('#navigation').html(new LogsSearchView().el);
+    // $('#navigation').html(new LogsFilterView().el);
+
+    // step 4
+    var detailsView = new DetailsView({el: $('#detail')});
+    // $('#detail').html(new DetailsView().el);
 
 });
