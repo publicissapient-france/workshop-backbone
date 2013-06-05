@@ -10,14 +10,13 @@ You'll need node.js for this workshop. If you don't have it already, you'll have
 
 ### Bootstraping
 
-1. go to the projet folder and type "npm install"
+1. Go to the projet folder and type "npm install".
 
-2. launch the server ("node server.js") and open http://localhost:4000.
+2. Launch the server ("node server.js") and open [localhost:4000](http://localhost:4000).
 
 3. Ensure the page is displayed correctly.
 
-4. Open your favorite IDE then open index.html, which is filled with static content. The main objective of this workshop
-will be to dynamise this content using Backbone and the data delivered by the server.
+4. Open your favorite IDE then open index.html, which is filled with static content. The main objective of this workshop will be to make this content dynamic using Backbone and the data delivered by the server.
 
 ### First Step : Bootstraping application and displaying the log table
 
@@ -41,7 +40,6 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
     - LogsView render method : inject collection.toJSON into template
     - Dynamise and adapt template : (using <%= underscore %> or {{#handlebars}} to the template markup)
     - Format every data in the template file with <% any js code you need %>
-   
     - !!! careful, json data from server doesn't match exactly the columns expected : you have to implement the parse method of the model (Log) of LogCollection
 
 
@@ -54,26 +52,25 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
     - Implement the LogsSearchView "render" method (like step 1) and call it.
 
 2. ### Make it works for real
-    - Instantiate LogsFilterModel and share between views, we'll use it to share informations among the app.
-    - Listen to keyup event on the input
-    - Bind the event to new method that will set its model with new input field value.
-    - Add listener in LogsView in order to re-render filtered table on LogsFilterModel change.
-    - Create method into LogsCollection to filter logs by text search (see Collection filter method http://backbonejs.org/#Collection-Underscore-Methods).
-    - Add method into LogsView to re-render new filtered collection.
+    - Instantiate LogsFilterModel and share it between views, we'll use it to share information among the app
+    - Listen and bind the keyup event to a new method that will set its model with the new input field value
+    - Add listener in LogsView in order to re-render filtered table on LogsFilterModel change
+    - Create method into LogsCollection to filter logs by text search (@see [Backbone.Collection#filter method](http://backbonejs.org/#Collection-Underscore-Methods))
+    - Add method into LogsView to re-render new filtered collection
 
 
 ### Step 3: Displaying log filter (by status and method) and using it
 
 1. ### Displaying static filter element in Backbone View
     - We gonna use LogsFilterView
-    _ Cut/past the #navigation content in index.html into templates/filter.tmpl
-    - Instantiate the LogsFilterView in app.js (do not forget to define LogsFilterModel too).
-    - Implement the LogsFilterView "render" method (like step 1 and 2) and call it.
+    - Cut/past the #navigation content in index.html into templates/filter.tmpl
+    - Instantiate the LogsFilterView in app.js (do not forget to define LogsFilterModel too)
+    - Implement the LogsFilterView "render" method (like step 1 and 2) and call it
 
 2. ### Make it works for real !
-    - Subscribe to status and method checkbox click. It will filter log list.
-    - add methods to update filterModel with new filter's values.
-    - Improve the re-render filter method in LogsView to catch new filters (statuses and methods).
+    - Subscribe to status and method checkboxes click: it will filter logs list
+    - Add methods to update filterModel with the new filter's values
+    - Improve the re-render filter method in LogsView to match new filters (statuses and methods)
 
 
 ### Step 4: Show a log's details when clicking on table line
@@ -90,7 +87,7 @@ In this final step, we gonna show details panel on the right, with selected log 
 
 2. #### Trigger an event and share the log that is clicked in table
     - Isolate logs table lines creating a new view: LogLineView
-        - as the DOM element we need is a tr (and not a div), do not forget to specify the tagName attribute of the view (@see [view extension with a tagName](http://backbonejs.org/#View-extend))
+        - as the DOM element we need is a tr (not a div), do not forget to specify the tagName attribute of the view (@see [view extension with a tagName](http://backbonejs.org/#View-extend))
     - Cut/past the each loop content from templates/table.tmpl to templates/table-line.tmpl
     - Make the LogLineView render the template passing it its model
     - Delegate rendering from LogsView to LogLineView:
