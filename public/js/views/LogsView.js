@@ -1,7 +1,7 @@
 define(['models/LogCollection', 'text!../templates/table.tmpl'], function(LogCollection, template) {
 	var LogsView = Backbone.View.extend({
 
-        template: _.template(template),//TODO put in skeleton app
+        template: _.template(template),
 
         events: {
         },

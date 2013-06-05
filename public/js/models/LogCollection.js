@@ -1,6 +1,6 @@
 define(function() {
 
-    var Log = Backbone.Model.extend({//TODO dans skeleton ?
+    var Log = Backbone.Model.extend({
 
 	    parse : function(response){
 	        var requestData = response.request.split(' ');
@@ -15,9 +15,9 @@ define(function() {
 
 	var LogCollection = Backbone.Collection.extend({
 
-	    model : Log,//TODO dans skeleton ?
+	    model : Log,
 
-	    url : 'data/logs.json',//TODO dans skeleton ?
+	    url : 'data/logs.json',
 
 	});
 

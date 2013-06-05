@@ -21,6 +21,6 @@ require(['views/LogsView', 'views/LogsFilterView', 'views/LogsSearchView', 'mode
 
     // etape 1
 	var logsView = new LogsView({el : $('#content')});
-	//$('#content').html(logsView.el); --> better but not simple in first
+	//$('#content').html(logsView.el); --> or you can attah to DOM after
 
 });
