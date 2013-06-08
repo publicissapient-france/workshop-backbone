@@ -4,7 +4,7 @@
 
 You'll need node.js for this workshop. If you don't have it already, you'll have to install it.
 - on Ubuntu or other apt, node is available on universes repositories.
-- on Window or MacOS, use the installer : http://nodejs.org/download/
+- on Window or MacOS, use the installer: http://nodejs.org/download/
 
 ## Step by step tutorial
 
@@ -18,10 +18,10 @@ You'll need node.js for this workshop. If you don't have it already, you'll have
 
 4. Open your favorite IDE then open index.html, which is filled with static content. The main objective of this workshop will be to make this content dynamic using Backbone and the data delivered by the server.
 
-5. Open [Backbone documentation](http://backbonejs.org/) and put your hands on !
+5. Open [Backbone documentation](http://backbonejs.org/) and put your hands on!
 
 
-### First Step : Bootstraping application and displaying the log table
+### First Step: Bootstraping application and displaying the log table
 
 In this first step, we gonna use a Backbone View (LogsView) to display the static data previously contained in index.html, then we gonna load the real data from the server and display it instead. 
 
@@ -29,21 +29,21 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
 1. #### Displaying static data in Backbone View
     - Cut/paste the table in index.html#content into the templates/table.html
     - Instantiate the LogView in app.js
-    - Bind #content to LogsView.el in app.js : 2 methods (at construct view or after)
-    - Implement LogsView "render" method : inject the html template in the "el" element. (Feel free to use your favorite template engine : [underscore](http://underscorejs.org/#template) or [Handlebars](http://handlebarsjs.com/expressions.html). Both are included in global scope.)
+    - Bind #content to LogsView.el in app.js: 2 methods (at construct view or after)
+    - Implement LogsView "render" method: inject the html template in the "el" element. (Feel free to use your favorite template engine: [underscore](http://underscorejs.org/#template) or [Handlebars](http://handlebarsjs.com/expressions.html). Both are included in global scope.)
     - Call "render" in initialize
     - Test in navigator
 
 2. #### Using real data
     - Define data url in LogsCollection
-    - In the initialize method of LogView :
+    - In the initialize method of LogView:
         - create a LogCollection as view collection attribute
-        - listenTo collection sync event for rendering view, (instead of calling explicitly render !)
+        - listenTo collection sync event for rendering view, (instead of calling explicitly render!)
         - fetch the collection
-    - LogsView render method : inject collection.toJSON into template
+    - LogsView render method: inject collection.toJSON into template
     - Make template dynamic: (using <%= underscore %> or {{#handlebars}} to the template markup)
     - Format every data in the template file with <% any js code you need %>
-    - !!! careful, json data from server doesn't match exactly the columns expected : you have to implement the parse method of the model (Log) of LogCollection
+    -!!! careful, json data from server doesn't match exactly the columns expected: you have to implement the parse method of the model (Log) of LogCollection
 
 
 ### Step 2: Displaying search filter and using it
@@ -70,7 +70,7 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
     - Instantiate the LogsFilterView in app.js (do not forget to define LogsFilterModel too)
     - Implement the LogsFilterView "render" method (like step 1 and 2) and call it
 
-2. ### Make it works for real !
+2. ### Make it works for real!
     - Subscribe to status and method checkboxes click: it will filter logs list
     - Add methods to update filterModel with the new filter's values
     - Improve the re-render filter method in LogsView to match new filters (statuses and methods)
