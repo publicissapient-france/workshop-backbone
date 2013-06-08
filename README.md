@@ -59,7 +59,8 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
     - Listen and bind the keyup event to a new method that will set its model with the new input field value
     - Add listener in LogsView in order to re-render filtered table on LogsFilterModel change
     - Create method into LogsCollection to filter logs by text search (@see [Backbone.Collection#filter method](http://backbonejs.org/#Collection-Underscore-Methods))
-    - Add method into LogsView to re-render new filtered collection
+    - Add method into LogsView that returns a sublist of its collection filtered by the text search
+    - "render" method should call now this method : logsView render the filtered logs
 
 
 ### Step 3: Displaying log filter (by status and method) and using it
@@ -73,7 +74,7 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
 2. ### Make it works for real!
     - Subscribe to status and method checkboxes click: it will filter logs list
     - Add methods to update filterModel with the new filter's values
-    - Improve the re-render filter method in LogsView to match new filters (statuses and methods)
+    - Improve the filter method in LogsView to match new filters (statuses and methods)
 
 
 ### Step 4: Show a log's details when clicking on table line
