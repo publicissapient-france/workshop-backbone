@@ -24,13 +24,8 @@ define(['models/LogCollection', 'text!templates/table.tmpl'], function (LogColle
         filterCollection : function() {
             var textSearch = this.model.get('search');
             return this.collection.byTextSearch(textSearch);
-        },
-
-        renderFilteredResults: function () {
-            console.log("LogsView filtering");
-            var textSearch = this.model.get('search');
-            this.$el.html(this.template(this.collection.byTextSearch(textSearch).toJSON()));
         }
+
 
     });
 });
