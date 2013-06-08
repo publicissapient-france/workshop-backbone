@@ -7,6 +7,9 @@ define(['./LogModel'], function (LogModel) {
         url: 'data/logs.json',
 
         bySearch: function (search) {
+            if(! textSearch){
+               return this;
+            }
             return new LogCollection(this.filter(function (model) {
                 return model.get('path').indexOf(search) !== -1;
             }));
