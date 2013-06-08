@@ -10,7 +10,6 @@ define(['text!templates/details.tmpl'], function (template) {
         },
 
         render: function () {
-            console.log();
             this.$el.html(this.template());
         },
 

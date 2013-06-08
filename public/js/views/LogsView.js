@@ -2,10 +2,6 @@ define(['models/LogCollection', 'text!templates/table.tmpl', 'views/LogLineView'
 
     return Backbone.View.extend({
 
-        events: {
-            'click tr': 'showDetails'
-        },
-
         initialize: function () {
             console.log("LogsView initializing");
             this.collection = new LogCollection();
