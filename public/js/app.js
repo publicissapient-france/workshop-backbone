@@ -23,7 +23,7 @@ require(['views/LogsView', 'views/LogsFilterView', 'views/LogsSearchView', 'mode
 
     // step 1
     var logsView = new LogsView({el: $('#content'), model: filterModel});
-    // $('#content').html(logsView.el); --> or you can attah to DOM after
+    // $('#content').html(logsView.el); --> or you can attach to DOM after
 
     // step 2
     var searchView = new LogsSearchView({el: $('header'), model: filterModel});
