@@ -11,22 +11,22 @@ require.config({
         'underscore': { exports: '_' },
         'jquery': { exports: '$' },
         'views/LogsView': { deps: ['backbone'] },
-        'views/LogsFilterView': { deps: ['backbone'] },
-        'views/LogsSearchView': { deps: ['backbone'] },
-        'models/LogsFilterModel': { deps: ['backbone'] }
+        'views/LeftPanelView': { deps: ['backbone'] },
+        'views/SearchView': { deps: ['backbone'] },
+        'models/FilterModel': { deps: ['backbone'] }
     }
 });
 
-require(['views/LogsView', 'views/LogsFilterView', 'views/LogsSearchView', 'models/LogsFilterModel'], function (LogsView, LogsFilterView, LogsSearchView, LogsFilterModel) {
+require(['views/LogsView', 'views/LeftPanelView', 'views/SearchView', 'models/FilterModel'], function (LogsView, LeftPanelView, SearchView, FilterModel) {
 
-    var filterModel = new LogsFilterModel();
+    var filterModel = new FilterModel();
 
     // step 1
     var logsView = new LogsView({el: $('#content'), model: filterModel});
-    // $('#content').html(logsView.el); --> or you can attah to DOM after
+    // $('#content').html(logsView.el); --> or you can attach to DOM after
 
     // step 2
-    var searchView = new LogsSearchView({el: $('header'), model: filterModel});
-    // $('header').html(new LogsSearchView().el);
+    var searchView = new SearchView({el: $('header'), model: filterModel});
+    // $('header').html(new SearchView().el);
 
 });
