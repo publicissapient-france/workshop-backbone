@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mois du JS</title>
-    <link rel="icon" type="image/png" href="css/favicon.png">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <script data-main="js/app" src="js/libs/require-2.1.5.js"></script>
+	<title>Mois du JS</title>
+	<link rel="icon" type="image/png" href="css/favicon.png">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+	<script data-main="js/app" src="js/libs/require-2.1.5.js"></script>
 </head>
 <body>
 
-<header>
-    <div>
-        <input type="text">
-        <a class="search_clear" href="#"></a>
+	<header>
+        <div>
+            <input type="text">
+            <a class="search_clear" href="#"></a>
+        </div>
+	</header>
+
+	<div id="navigation">
+        <div><div>HTTP status</div>
+            <ul id="statuses">
+                <li><input type="checkbox" name="status" value="200" id="200" checked><label for="200">200</label></li>
+                <li><input type="checkbox" name="status" value="204" id="204" checked><label for="204">204</label></li>
+                <li><input type="checkbox" name="status" value="301" id="301" checked><label for="301">301</label></li>
+                <li><input type="checkbox" name="status" value="404" id="404" checked><label for="404">404</label></li>
+            </ul>
+            <br>
+            <div>HTTP method</div>
+            <ul id="methods">
+                <li><input type="checkbox" name="method" value="GET" id="GET" checked><label for="GET">GET</label></li>
+                <li><input type="checkbox" name="method" value="POST" id="POST" checked><label for="POST">POST</label></li>
+                <li><input type="checkbox" name="method" value="PUT" id="PUT" checked><label for="PUT">PUT</label></li>
+                <li><input type="checkbox" name="method" value="DELETE" id="DELETE" checked><label for="DELETE">DELETE</label></li>
+            </ul></div>
+	</div>
+
+	<div id="content">
+	</div>
+
+    <div id="detail">
+        <h1>Google</h1>
+        <div class="label">GET</div>
+        <div class="label">200</div>
+        <!-- <div class="empty">please select a line</div> -->
     </div>
-</header>
-
-<div id="navigation">
-    <div>HTTP status</div>
-    <ul>
-        <li><input type="checkbox" id="200"><label for="200">200</label></li>
-        <li><input type="checkbox" id="400"><label for="400">400</label></li>
-        <li><input type="checkbox" id="500"><label for="500">500</label></li>
-    </ul>
-    <br>
-    <div>HTTP method</div>
-    <ul>
-        <li><input type="checkbox" id="GET"><label for="GET">GET</label></li>
-        <li><input type="checkbox" id="POST"><label for="POST">POST</label></li>
-        <li><input type="checkbox" id="PUT"><label for="PUT">PUT</label></li>
-        <li><input type="checkbox" id="DELETE"><label for="DELETE">DELETE</label></li>
-    </ul>
-</div>
-
-<div id="content">
-</div>
-
-<div id="detail">
-    <h1>Google</h1>
-    <div class="label">GET</div>
-    <div class="label">200</div>
-    <!-- <div class="empty">please select a line</div> -->
-</div>
 </body>
 </html>
