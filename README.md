@@ -49,27 +49,27 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
 ### Step 2: Displaying search filter and using it
 
 1. ### Displaying static search element in Backbone View
-    - We gonna use LogsSearchView.
+    - We gonna use SearchView.
     - Cut/past the header content in index.html into templates/search.tmpl
-    - Instantiate the LogsSearchView in app.js
-    - Implement the LogsSearchView "render" method (like step 1) and call it.
+    - Instantiate the SearchView in app.js
+    - Implement the SearchView "render" method (like step 1) and call it.
 
 2. ### Make it works for real
-    - Instantiate LogsFilterModel and share it between views, we'll use it to share information among the app
+    - Instantiate FilterModel and share it between views, we'll use it to share information among the app
     - Listen and bind the keyup event to a new method that will set its model with the new input field value
-    - Add listener in LogsView in order to re-render filtered table on LogsFilterModel change
+    - Add listener in LogsView in order to re-render filtered table on FilterModel change
     - Create method into LogsCollection to filter logs by text search (@see [Backbone.Collection#filter method](http://backbonejs.org/#Collection-Underscore-Methods))
     - Add method into LogsView that returns a sublist of its collection filtered by the text search
-    - "render" method should call now this method : logsView render the filtered logs
+    - "render" method should call now this method : LogsView render the filtered logs
 
 
 ### Step 3: Displaying log filter (by status and method) and using it
 
 1. ### Displaying static filter element in Backbone View
-    - We gonna use LogsFilterView
+    - We gonna use LeftPanelView
     - Cut/past the #navigation content in index.html into templates/filter.tmpl
-    - Instantiate the LogsFilterView in app.js (do not forget to define LogsFilterModel too)
-    - Implement the LogsFilterView "render" method (like step 1 and 2) and call it
+    - Instantiate the LeftPanelView in app.js (do not forget to define FilterModel too)
+    - Implement the LeftPanelView "render" method (like step 1 and 2) and call it
 
 2. ### Make it works for real!
     - Subscribe to status and method checkboxes click: it will filter logs list
