@@ -58,9 +58,9 @@ In this first step, we gonna use a Backbone View (LogsView) to display the stati
     - Instantiate FilterModel and share it between views, we'll use it to share information among the app
     - Listen and bind the keyup event to a new method that will set its model with the new input field value
     - Add listener in LogsView in order to re-render filtered table on FilterModel change
-    - Create method into LogsCollection to filter logs by text search (@see [Backbone.Collection#filter method](http://backbonejs.org/#Collection-Underscore-Methods))
-    - Add method into LogsView that returns a sublist of its collection filtered by the text search
-    - "render" method should call now this method : LogsView render the filtered logs
+    - Create a method into LogsCollection to filter models by a search term (@see [Backbone.Collection#filter method](http://backbonejs.org/#Collection-Underscore-Methods)) (you can return a new collection with the filtered models)
+    - LogsView's "render" method should now only render the filtered logs :
+        - You should add a "filterCollection" method into LogsView that call the collection method and be called by render
 
 
 ### Step 3: Displaying log filter (by status and method) and using it
