@@ -48,10 +48,10 @@ You'll need node.js for this workshop. If you don't have it already, you'll have
 
 ### Step three : Displaying log filter (by status and method) and using it
 
-- create a LogsFilterView and extract the filter.tmpl from index.html
+- create a LeftPanelView and extract the filter.tmpl from index.html
 - listen to click events on statuses & methods ul
 - create a LogsAppModel with two collections, statuses and methods, to store the filters states
 - give this model to both views
 - hydrate this model when LogsView is rendered for the first time
-- listenTo this model in LogsFilterView and <%= mustash %> the template with the unique values
+- listenTo this model in LeftPanelView and <%= mustash %> the template with the unique values
 - listenTo this model collections in LogsView and filter the LogCollection following the selected filters
